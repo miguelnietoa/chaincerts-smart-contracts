@@ -172,4 +172,5 @@ fn validate_issuer(e: &Env, issuer: &Address, did: &String) {
     if issuer::is_revoked(&issuers, issuer) {
         panic_with_error!(e, ContractError::IssuerRevoked)
     }
+    issuer.require_auth();
 }
